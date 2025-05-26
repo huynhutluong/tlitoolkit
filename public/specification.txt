@@ -1,0 +1,2 @@
+Torchlight: Infinite is a ARPG game (Diablo/PoE like game).
+You start the game by choosing a hero
