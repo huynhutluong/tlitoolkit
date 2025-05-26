@@ -1,4 +1,3 @@
-// app/hero-list/page.tsx or components/HeroList.tsx
 'use client';
 
 import { database } from '@/lib/firebase';
@@ -17,10 +16,15 @@ export default function HeroList() {
     const fetchHeroes = async () => {
       const heroRef = ref(database, 'hero');
       const snapshot = await get(heroRef);
+
       if (snapshot.exists()) {
         const data = snapshot.val();
+        console.log('Fetched data from Firebase:', data);
+
         const heroesArray = Object.values(data) as Hero[];
         setHeroes(heroesArray);
+      } else {
+        console.log('No data found at hero path');
       }
     };
 
